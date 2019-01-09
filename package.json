@@ -4,8 +4,18 @@
   "main": "index.js",
   "repository": "https://github.com/bpk68/g-sheets-api.git",
   "author": "Rob Kendal <38687284+rpk506@users.noreply.github.com>",
-  "license": "GNU",
+  "license": "AGPL-3.0-or-later",
+  "keywords": [
+    "gsheets",
+    "google sheets",
+    "sheets"
+  ],
+  "bugs": {
+    "url": "https://github.com/bpk68/g-sheets-api.git/issues"
+  },
+  "homepage": "https://github.com/bpk68/g-sheets-api.git#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
     "@babel/core": "7.2.2",
     "@babel/polyfill": "7.2.5",
     "@babel/preset-env": "7.2.3",
@@ -19,7 +29,7 @@
     "webpack-merge": "4.1.5"
   },
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "npx babel src --out-dir \"dist\"",
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   }

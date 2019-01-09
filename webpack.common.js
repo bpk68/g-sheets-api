@@ -6,19 +6,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
-        app: './index.js'
+        app: './demo/index.js'
     },
     plugins: [
-         new CleanWebpackPlugin(['dist']),
+         new CleanWebpackPlugin(['app']),
          new HtmlWebpackPlugin({
              title: 'Production',
              inject: 'footer',
-             template: './index.html'
+             template: './demo/index.html'
         })
     ],
     output: {
         filename: '[name].bundle.min.js',
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "app")
     },
     module: {
         rules: [

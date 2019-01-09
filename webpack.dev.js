@@ -5,7 +5,7 @@
     mode: 'development',
     devtool: 'inline-source-map',
     devServer: {
-     contentBase: "./dist",
+     contentBase: "./app",
      index: "index.html",
      compress: false,
      port: 8080,

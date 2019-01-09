@@ -1,6 +1,6 @@
-import GSheetProcessor from './src/gsheetsprocessor'
+import GSheetProcessor from '../src/gsheetsprocessor.js'
 
-// test url
+// test Sheet url
 const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg/edit?usp=sharing';
 
 // test sheet id
