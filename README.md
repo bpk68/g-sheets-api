@@ -92,14 +92,14 @@ Now the exciting part - calling the actual reader!
 
 First, import or require the package in your JavaScript file:
 
-`const GSheetProcessor = require('g-sheet-api');`
+`const GSheetReader = require('g-sheet-api');`
 
 The reader uses the JavaScript `fetch()` API to asynchronously fetch the data from the Google Sheet, converts the text data to JSON, formats the results to make them a little more consumable at your end and passes these formatted results back.
 
 Because we're dealing with JavaScript Promises, in order to call and use the reader, you'll need to pass in an options object (explained below) and a callback function that will be passed the returned results from your Sheet.
 
 ```JavaScript
-GSheetProcessor(options, results => {
+GSheetReader(options, results => {
   // do something with the results here
 });
 ```
@@ -166,7 +166,7 @@ The reader doesn't make any assumptions on how you might like to present your da
 Here is a complete example that takes the returned results and creates a HTML table with them.
 
 ```JavaScript
-GSheetProcessor(options, results => {
+GSheetReader(options, results => {
 
   const table = document.createElement('table');
   const header = table.createTHead();
