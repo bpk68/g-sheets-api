@@ -70,7 +70,7 @@ If you have an existing Google Sheet you'd like to use, great! Otherwise, make a
 
 This is what your settings screen should look like...
 
-![Google Sheets publishing settings - screenshot](demo/img/sheets-settings-screenshot?raw=true)
+![Google Sheets publishing settings - screenshot](demo/img/sheets-settings-screenshot.png?raw=true)
 
 #### Get your Sheet id
 
