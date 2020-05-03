@@ -1,8 +1,8 @@
 
-const gsheetsAPI = function(sheetId) {
+const gsheetsAPI = function(sheetId, sheetNumber = 1) {
 
     try {
-      const sheetsUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/1/public/values?alt=json-in-script`;
+      const sheetsUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values?alt=json-in-script`;
 
       return fetch(sheetsUrl)
       .then(response => {
