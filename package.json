@@ -16,9 +16,9 @@
   "homepage": "https://github.com/bpk68/g-sheets-api.git#readme",
   "devDependencies": {
     "@babel/cli": "7.8.4",
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.9.6",
     "@babel/polyfill": "7.8.7",
-    "@babel/preset-env": "7.9.0",
+    "@babel/preset-env": "7.9.6",
     "babel-loader": "8.1.0",
     "clean-webpack-plugin": "1.0.1",
     "css-loader": "3.5.3",
