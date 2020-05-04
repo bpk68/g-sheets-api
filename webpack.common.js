@@ -1,6 +1,6 @@
 const path = require("path");
 
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -9,11 +9,11 @@ module.exports = {
         app: './demo/index.js'
     },
     plugins: [
-         new CleanWebpackPlugin(['app']),
-         new HtmlWebpackPlugin({
-             title: 'Production',
-             inject: 'footer',
-             template: './demo/index.html'
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: 'Production',
+            inject: 'footer',
+            template: './demo/index.html'
         })
     ],
     output: {
