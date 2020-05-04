@@ -114,7 +114,12 @@ const options = {
   sheetNumber: 1,
   returnAllResults: false,
   filter: {
-    'department': 'archaeology'
+    'department': 'archaeology',
+    'module description': 'introduction'
+  },
+  filterOptions: {
+    operator: 'or',
+    matching: 'loose'
   }
 }
 ```
@@ -125,6 +130,9 @@ const options = {
 - **sheetNumber** (optional) - *default = 1* - if you'd like to choose a different sheet number than the first, supply this argument with the *non-zero* index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`. 
 - **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to *true*
 - **filter** (optional) - an object consisting of key/value pairs where *key* is a column header in the Sheet and *value* is the value to match for the filter.
+- **filterOptions** - (optional) - to better control the filter's matching, you can optionally supply a *filterOptions* object consisting of the following properties:
+  - **operator** - *default = 'or'* - supplying either *'or'* or *'and'*, this dictates whether to match ALL the values in the row, or ANY of them -- e.g. when supplying 'or', if any of the row's values match, that row will be returned.
+  - **matching** - *default = 'loose'* - with matching, if you wish to control how strictly the filter matches against the cell's value, you can supply *'loose'*, which offers a fuzzy search, or *'strict'* which is more picky. For example, 'loose' would match 'introduction' in the following sentence, 'introduction to mathematatics', but 'strict' would not. 
 
 ### Process the results
 

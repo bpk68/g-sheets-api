@@ -11,7 +11,12 @@ const options = {
   sheetNumber: 1,
   returnAllResults: false,
   filter: {
-    'department': 'archaeology'
+    'department': 'archaeology',
+    'module description': 'introduction'
+  },
+  filterOptions: {
+    operator: 'or',
+    matching: 'loose',
   }
 }
 
