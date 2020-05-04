@@ -111,6 +111,7 @@ You'll need to pass in an options object when you call the reader function in or
 ```JavaScript
 const options = {
   sheetId: '1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg',
+  sheetNumber: 1,
   returnAllResults: false,
   filter: {
     'department': 'archaeology'
@@ -120,7 +121,8 @@ const options = {
 
 **Available options are**
 
-- **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, *1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg*
+- **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, *1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg*,
+- **sheetNumber** (optional) - *default = 1* - if you'd like to choose a different sheet number than the first, supply this argument with the *non-zero* index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`. 
 - **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to *true*
 - **filter** (optional) - an object consisting of key/value pairs where *key* is a column header in the Sheet and *value* is the value to match for the filter.
 

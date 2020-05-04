@@ -1,13 +1,14 @@
 import GSheetProcessor from '../src/gsheetsprocessor.js'
 
 // test Sheet url
-const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg/edit?usp=sharing';
+const demoSheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTNecew9RqdOMQBmeVLdZT1Mu5x0lsapOQ-h-u8tQYWnjynFVNnL9U4IFMHn13nT7npV4348vk9Qr0X/pubhtml';
 
 // test sheet id
 const demoSheetId = '1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg';
 
 const options = {
   sheetId: '1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg',
+  sheetNumber: 1,
   returnAllResults: false,
   filter: {
     'department': 'archaeology'
