@@ -89,7 +89,7 @@ function processGSheetResults(JSONResponse, returnAllResults, filter) {
 
 const gsheetProcessor = function(options, callback) {
 
-  GSheetsapi(options.sheetId).then(result => {
+  GSheetsapi(options.sheetId, options.sheetNumber? options.sheetNumber : 1).then(result => {
     const filteredResults = processGSheetResults(
       result,
       options.returnAllResults || false,
