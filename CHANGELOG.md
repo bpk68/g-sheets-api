@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.2.0] 2020-05-05
+### Changed
+- Add filterOptions property to control results filtering
+- Update documentation
+
 ## [1.1.0] 2020-05-04
 ### Changed
 - Fix security vulnerabilities in node dependencies
