@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.2.1] 2020-05-12
+### Changed
+- Fixes missing sheet id options property
+
 ## [1.2.0] 2020-05-05
 ### Changed
 - Add filterOptions property to control results filtering
