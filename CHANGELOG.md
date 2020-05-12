@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.3.0] 2020-05-15
+### Changed
+- Add support for Node servers
+
 ## [1.2.1] 2020-05-12
 ### Changed
 - Fixes missing sheet id options property
