@@ -204,3 +204,16 @@ GSheetReader(options, results => {
   main.append(table);
 });
 ```
+
+## A note on Node support
+
+This package can also be run via a Node backend or Node server. Added in v1.3.0, the native browser-based `fetch` support was replaced with a call to `node-fetch` depending on the calling environment. 
+
+### Node based demo
+
+There is also a Node-based demo available in the repo. If you clone the repo and install it (`yarn install`), then browse to `/src/nodedemo/` and run the following commands whilst in that directory:
+
+- `yarn install`
+- `yarn start`
+
+You'll see a console log of the demo sheet output to the CLI. 
