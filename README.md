@@ -92,7 +92,7 @@ Now the exciting part - calling the actual reader!
 
 First, import or require the package in your JavaScript file:
 
-`const GSheetReader = require('g-sheet-api');`
+`const GSheetReader = require('g-sheets-api');`
 
 The reader uses the JavaScript `fetch()` API to asynchronously fetch the data from the Google Sheet, converts the text data to JSON, formats the results to make them a little more consumable at your end and passes these formatted results back.
 
