@@ -98,12 +98,54 @@ The reader uses the JavaScript `fetch()` API to asynchronously fetch the data fr
 Because we're dealing with JavaScript Promises, in order to call and use the reader, you'll need to pass in an options object (explained below) and a callback function that will be passed the returned results from your Sheet.
 
 ```JavaScript
+GSheetReader(
+  options,
+  results => {
+    // do something with the results here
+  },
+  error => {
+    // OPTIONAL: handle errors here
+  });
+```
+
+### Handling errors
+
+There's a good change something might go wrong at the fetching from GSheets end. It could be that you've entered an incorrect Sheet Id, that the Sheet isn't publicly available yet (it's not an instant publish process from Google), or some other in-transit error.
+
+To handle this, we've got a couple of options:
+
+1. Handle the error in the returned promise using a `.catch()` block;
+2. Supply the `GSheetReader()` function with an optional error handling function as a third argument.
+
+#### Using a `.catch()` block
+
+The `GSheetsReader` will return a typical JS promise object. Therefore, you can catch any errors using the `.catch()` block like this:
+
+```js
 GSheetReader(options, results => {
   // do something with the results here
+}).catch(err => {
+  // do something with the error message here
 });
 ```
 
-#### The options Object
+#### Using an optional error callback
+
+If you don't want to handle things with the `.catch()` block, then you can supply an optional error handling function as a third argument to the `GSheetsReader` function.
+
+```js
+GSheetReader(
+  options,
+  results => {
+    // do something with the results here
+  },
+  error => {
+    // OPTIONAL: handle errors here
+  }
+);
+```
+
+### The options Object
 
 You'll need to pass in an options object when you call the reader function in order to get things working correctly. The options object should look like this:
 
