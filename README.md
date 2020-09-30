@@ -1,11 +1,10 @@
-
 # Google Sheets Reader
 
 Hello and welcome to this tiny (but hopefully mighty) utility package that will help you fetch, read and process data from a Google Sheet without the faff of having to deal with the [Google Sheets API](https://developers.google.com/sheets/api/).
 
 [Skip to the how to use section](#how-to-use) or read on for more details.
 
-## What is the Google Sheets Reader?
+## What is the Google Sheets Reader
 
 Google Sheets offers a really straightforward means to access data held in a Google Sheet via a special script call appended to a Sheet's _published_ URL. That is, the Google Sheet must be publicly to be able to call it.
 
@@ -40,9 +39,9 @@ The essential setup steps look like this:
 1. Install the package
 2. Set up a Google Sheet ready for access
 3. Call the reader function
-  1. The options object argument
-  2. The callback argument
-4. Process the results
+4. The options object argument
+5. The callback argument
+6. Process the results
 
 ### Install the package
 
@@ -80,11 +79,11 @@ You can either get this from the URL of the open Sheet, or by clicking the 'Shar
 
 Either way, what you'll end up with is a URL that looks like this:
 
- https://docs.google.com/spreadsheets/d/1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg/edit?usp=sharing
+<https://docs.google.com/spreadsheets/d/1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc/edit>
 
- you want the part between the */d/* and the next */* character. So, for the above URL, the Sheet id would be:
+you want the part between the _/d/_ and the next _/_ character. So, for the above URL, the Sheet id would be:
 
- 1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg
+`1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc`
 
 ### Call the reader function
 
@@ -110,7 +109,7 @@ You'll need to pass in an options object when you call the reader function in or
 
 ```JavaScript
 const options = {
-  sheetId: '1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg',
+  sheetId: '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc',
   sheetNumber: 1,
   returnAllResults: false,
   filter: {
@@ -126,13 +125,13 @@ const options = {
 
 **Available options are**
 
-- **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, *1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg*,
-- **sheetNumber** (optional) - *default = 1* - if you'd like to choose a different sheet number than the first, supply this argument with the *non-zero* index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`. 
-- **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to *true*
-- **filter** (optional) - an object consisting of key/value pairs where *key* is a column header in the Sheet and *value* is the value to match for the filter.
-- **filterOptions** - (optional) - to better control the filter's matching, you can optionally supply a *filterOptions* object consisting of the following properties:
-  - **operator** - *default = 'or'* - supplying either *'or'* or *'and'*, this dictates whether to match ALL the values in the row, or ANY of them -- e.g. when supplying 'or', if any of the row's values match, that row will be returned.
-  - **matching** - *default = 'loose'* - with matching, if you wish to control how strictly the filter matches against the cell's value, you can supply *'loose'*, which offers a fuzzy search, or *'strict'* which is more picky. For example, 'loose' would match 'introduction' in the following sentence, 'introduction to mathematatics', but 'strict' would not. 
+- **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, _1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg_,
+- **sheetNumber** (optional) - _default = 1_ - if you'd like to choose a different sheet number than the first, supply this argument with the _non-zero_ index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`.
+- **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to _true_
+- **filter** (optional) - an object consisting of key/value pairs where _key_ is a column header in the Sheet and _value_ is the value to match for the filter.
+- **filterOptions** - (optional) - to better control the filter's matching, you can optionally supply a _filterOptions_ object consisting of the following properties:
+  - **operator** - _default = 'or'_ - supplying either _'or'_ or _'and'_, this dictates whether to match ALL the values in the row, or ANY of them -- e.g. when supplying 'or', if any of the row's values match, that row will be returned.
+  - **matching** - _default = 'loose'_ - with matching, if you wish to control how strictly the filter matches against the cell's value, you can supply _'loose'_, which offers a fuzzy search, or _'strict'_ which is more picky. For example, 'loose' would match 'introduction' in the following sentence, 'introduction to mathematatics', but 'strict' would not.
 
 ### Process the results
 
@@ -146,7 +145,7 @@ For example, using the demo sheet I have set up (in the URL's used above), the r
     "Module Code" : "COM00001C-A",
     "Module Description" : "Introduction to computer architectures",
     "Year / Stage" : "1",
-	   "Term Run": "Full Year",
+    "Term Run": "Full Year",
      "Assessment Type" : "Open/Closed",
      "Assessment Month" : "Autumn/Spring",
      Credits : 15,
@@ -156,7 +155,7 @@ For example, using the demo sheet I have set up (in the URL's used above), the r
     "Module Code" : "COM00002C-A",
     "Module Description" : "Mathmatical foundations of computer science",
     "Year / Stage" : "1",
-	   "Term Run": "Full Year",
+    "Term Run": "Full Year",
      "Assessment Type" : "Closed Exam",
      "Assessment Month" : "Summer Term",
      Credits : 20,
@@ -169,7 +168,6 @@ For example, using the demo sheet I have set up (in the URL's used above), the r
 ```
 
 The reader doesn't make any assumptions on how you might like to present your data or what you should do with it, it simply formats the data in a flexible way so that you can do with it as you choose.
-
 
 #### An advanced example to create an HTML table from the results
 
@@ -207,7 +205,7 @@ GSheetReader(options, results => {
 
 ## A note on Node support
 
-This package can also be run via a Node backend or Node server. Added in v1.3.0, the native browser-based `fetch` support was replaced with a call to `node-fetch` depending on the calling environment. 
+This package can also be run via a Node backend or Node server. Added in v1.3.0, the native browser-based `fetch` support was replaced with a call to `node-fetch` depending on the calling environment.
 
 ### Node based demo
 
@@ -216,4 +214,4 @@ There is also a Node-based demo available in the repo. If you clone the repo and
 - `yarn install`
 - `yarn start`
 
-You'll see a console log of the demo sheet output to the CLI. 
+You'll see a console log of the demo sheet output to the CLI.
