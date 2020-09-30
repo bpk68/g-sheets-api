@@ -203,6 +203,12 @@ GSheetReader(options, results => {
 });
 ```
 
+## Demo
+
+You can checkout this source code and install the dependencies using `yarn install`. Once you've done that, you can run `yarn start` which will fire up a local demo and show you a set of results.
+
+If you'd rather just skip this and take a look at a live demo, then you can view [this CodeSandbox live demo](https://codesandbox.io/s/g-sheets-reader-demo-qm5r0) instead.
+
 ## A note on Node support
 
 This package can also be run via a Node backend or Node server. Added in v1.3.0, the native browser-based `fetch` support was replaced with a call to `node-fetch` depending on the calling environment.
