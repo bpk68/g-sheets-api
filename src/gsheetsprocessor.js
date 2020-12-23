@@ -30,6 +30,14 @@ function filterResults(resultsToFilter, filter, options) {
 
   // now we have a list of rows, we can filter by various things
   return resultsToFilter.filter(item => {
+
+    // item data shape
+    // item = {
+    //   'Module Name': 'name of module',
+    //   ...
+    //   Department: 'Computer science'
+    // }
+
     let addRow = null;
     let filterMatches = [];
 
@@ -43,7 +51,10 @@ function filterResults(resultsToFilter, filter, options) {
 
     Object.keys(filter).forEach(key => {
       const filterValue = filter[key]; // e.g. 'archaeology'
-      const itemValue = item[key]; // e.g. 'department' or 'undefined'
+
+      // need to find a matching item object key in case of case differences
+      const itemKey = Object.keys(item).find(thisKey => thisKey.toLowerCase().trim() === key.toLowerCase().trim());
+      const itemValue = item[itemKey]; // e.g. 'department' or 'undefined'
 
       filterMatches.push(
         matchValues(itemValue, filterValue, options.matching || 'loose')
@@ -84,7 +95,7 @@ function processGSheetResults(
 
     // don't add this row to the return data, but add it to list of column names
     if (thisRow < startRow) {
-      colNames[columnNum] = val.toLowerCase();
+      colNames[columnNum] = val;
       continue; // skip the header row
     }
 
