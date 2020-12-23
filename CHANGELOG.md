@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.4.1] 2020-12-23
+### Changed
+- Fix casing issue when using column headers in filtering
+- Replaced Webpack with Parcel JS for running the project demo
+- Dependency updates and security patches
+
+## [1.4.0] 2020-09-08
+### Changed
+- Dependency updates
+
 ## [1.3.0] 2020-05-13
 ### Changed
 - Add support for running package from Node servers
