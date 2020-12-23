@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/cli": "7.12.10",
     "@babel/core": "7.12.10",
-    "del-cli": "^3.0.1",
+    "del-cli": "3.0.1",
     "parcel-bundler": "1.12.4"
   },
   "scripts": {
