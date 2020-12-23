@@ -1,14 +1,13 @@
 import GSheetProcessor from '../src/gsheetsprocessor.js';
 
 // test Sheet url
-const demoSheetURL =
-  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTKkGwAKTEhHgPZPrYsszEGBVMNRR9ukXN7CzbGmWuNWiLNyYeTOzEpwKoBa1-kksaf3R60a_3vfQHW/pubhtml';
+const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc/edit#gid=0';
 
 // test sheet id
 const demoSheetId = '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc';
 
 const options = {
-  sheetId: '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc2',
+  sheetId: demoSheetId,
   sheetNumber: 1,
   returnAllResults: false,
   filter: {
@@ -17,7 +16,7 @@ const options = {
   },
   filterOptions: {
     operator: 'or',
-    matching: 'loose'
+    matching: 'loose',
   }
 };
 
