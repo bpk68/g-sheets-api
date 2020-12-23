@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/bpk68/g-sheets-api.git#readme",
   "devDependencies": {
+<<<<<<< Updated upstream
     "@babel/cli": "7.12.10",
     "@babel/core": "7.12.10",
     "@babel/polyfill": "7.12.1",
@@ -31,6 +32,19 @@
   "scripts": {
     "build": "npx babel src --out-dir \"dist\"",
     "start": "webpack-dev-server --open --config webpack.dev.js",
+=======
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "del-cli": "^3.0.1",
+    "parcel-bundler": "1.12.4"
+  },
+  "scripts": {
+    "clean": "del dist/*",
+    "build": "npx babel src --out-dir \"build\"",
+    "production": "parcel build ./build/index.js",
+    "package": "yarn clean && yarn build && yarn production",
+    "start": "parcel ./demo/index.html --open --no-cache",
+>>>>>>> Stashed changes
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
