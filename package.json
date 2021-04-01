@@ -18,7 +18,7 @@
     "@babel/cli": "7.13.10",
     "@babel/core": "7.13.10",
     "del-cli": "3.0.1",
-    "parcel-bundler": "1.12.4"
+    "parcel-bundler": "1.12.5"
   },
   "scripts": {
     "clean": "del dist/*",
