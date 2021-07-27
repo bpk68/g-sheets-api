@@ -1,6 +1,6 @@
 {
   "name": "g-sheets-api",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "main": "build/index.js",
   "repository": "https://github.com/bpk68/g-sheets-api.git",
   "author": "Rob Kendal <38687284+rpk506@users.noreply.github.com>",
