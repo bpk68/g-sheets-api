@@ -251,6 +251,15 @@ You can checkout this source code and install the dependencies using `yarn insta
 
 If you'd rather just skip this and take a look at a live demo, then you can view [this CodeSandbox live demo](https://codesandbox.io/s/g-sheets-reader-demo-qm5r0) instead.
 
+### Access to the demo GSheet
+
+In the demos (both within this very repo and in my [website article on using the GSheets reader](https://robkendal.co.uk/blog/reading-google-sheets-data-using-javascript-with-google-sheets-reader)), I make reference to a demo sheet I have in my own Google account. Many people request access to this, but unfortunately this won't be granted because of security issues. 
+
+However, in case you'd like to recreate the exact same sheet I have, here's a screenshot:
+
+![Google Sheet demo sheet content - screenshot](demo/img/g-sheets-demo-sheet-screenshot.png?raw=true)
+
+
 ## A note on Node support
 
 This package can also be run via a Node backend or Node server. Added in v1.3.0, the native browser-based `fetch` support was replaced with a call to `node-fetch` depending on the calling environment.
