@@ -113,6 +113,18 @@ function processGSheetResults(
     result => Object.keys(result).length
   );
 
+  // account for cells with empty data
+  processedResults = processedResults.map(obj => {
+    const row = {};
+    if(obj !== undefined && Object.keys(obj).length > 0) {
+      Object.values(colNames).forEach(colName => {
+        row[colName] = obj[colName] || null;        
+      });
+      return row;
+    }
+    return;
+  });
+
   // if we're not filtering, then return all results
   if (returnAllResults || !filter) {
     return processedResults;
