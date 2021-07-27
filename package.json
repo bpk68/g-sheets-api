@@ -26,7 +26,7 @@
     "production": "parcel build ./build/index.js",
     "package": "yarn clean && yarn build && yarn production",
     "start": "parcel ./demo/index.html --open --no-cache",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "browserslist": [
     "> 1%",
