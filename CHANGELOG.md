@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.4.2] 2021-07-27
+### Changed
+- Add support for missing cells returned from GSheets call
+- Patch some security vulnerabilities
+- Dependency updates and security patches
+
 ## [1.4.1] 2020-12-23
 ### Changed
 - Fix casing issue when using column headers in filtering
