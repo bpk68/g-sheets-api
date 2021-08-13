@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Released]
 
+## [1.5.0] 2021-08-13
+### Changed
+- Update node support from node-fetch to cross-fetch package
+- Alters internal GSheets call to pull in JSON over text feed
+- Update README.md for node support
+- Fix node demo load issue
+
 ## [1.4.2] 2021-07-27
 ### Changed
 - Add support for missing cells returned from GSheets call

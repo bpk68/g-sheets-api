@@ -266,7 +266,7 @@ This package can also be run via a Node backend or Node server. Added in v1.3.0,
 
 ### Node based demo
 
-There is also a Node-based demo available in the repo. If you clone the repo and install it (`yarn install`), then browse to `/src/nodedemo/` and run the following commands whilst in that directory:
+There is also a Node-based demo available in the repo. If you clone the repo and install it (`yarn install`), then run a build of the GSheets module (`yarn build`), then browse to `/nodedemo/` and run the following commands whilst in that directory:
 
 - `yarn install`
 - `yarn start`

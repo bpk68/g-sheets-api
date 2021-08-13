@@ -1,4 +1,4 @@
-var gSheetsApi = require('../dist/index');
+var gSheetsApi = require('../build/index');
 
 console.log('welcome to the dev server...');
 console.log('loading your GSheet...');
