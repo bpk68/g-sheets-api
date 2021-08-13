@@ -5,8 +5,7 @@ const gsheetsAPI = function (sheetId, sheetNumber = 1) {
     const sheetsUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values?alt=json`;
 
     return fetch(sheetsUrl)
-      .then(response => {
-        console.log(response);
+      .then(response => {        
         if (!response.ok) {
           console.log('there is an error in the gsheets response');
           throw new Error('Error fetching GSheet');
