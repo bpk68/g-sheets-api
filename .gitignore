@@ -65,3 +65,4 @@ node_modules
 dist
 build
 .vscode/launch.json
+.cache
