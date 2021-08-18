@@ -83,7 +83,7 @@ Next, you'll need to make the sheet available to anyone with the link (**in read
 
 This is what the box looks like:
 
-![Google Sheets public link settings - screenshot](demo/img/sheets-link-settings.png)
+![Google Sheets public link settings - screenshot](demo/img/sheets-link-settings.png?raw=true)
 
 And that's all the Sheet setup work done!
 
