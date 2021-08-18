@@ -2,15 +2,17 @@
 
 Hello and welcome to this tiny (but hopefully mighty) utility package that will help you fetch, read and process data from a Google Sheet without the faff of having to deal with the [Google Sheets API](https://developers.google.com/sheets/api/).
 
+> **Note**: v2.0.0 of this package introduced breaking changes and a significant rewrite of the internals of the package. This is due to Googles end of support for the Google Sheets API v3, forcing a migration to v4. If you follow this readme doc you'll be fine, the biggest change will be that you need to create your own API key using Google Cloud Console.
+
 [Skip to the how to use section](#how-to-use) or read on for more details.
 
 ## What is the Google Sheets Reader
 
-Google Sheets offers a really straightforward means to access data held in a Google Sheet via a special script call appended to a Sheet's _published_ URL. That is, the Google Sheet must be publicly to be able to call it.
+Google Sheets offers a really straightforward means to access data held in a Google Sheet via a special script call appended to a Sheet's _published_ URL. That is, the Google Sheet must be made public to be able to call it.
 
-This returns a JSON-style bundle of text which can be processed without the need for setting up the [Google Sheets API](https://developers.google.com/sheets/api/) and jumping through the fairly complex hoops to get it working.
+This returns a JSON-style bundle of data which can be processed without the need for using the more complex [Google Sheets API library](https://developers.google.com/sheets/api) and jumping through the fairly complex hoops to get it working.
 
-The Google Sheets Reader allows you to simply call a function, pass in some options (including the Sheet id) and run a callback function with the returned, processed, formatted results.
+The Google Sheets Reader allows you to simply call a function, pass in some options (including the Sheet id and an API key) and run a callback function with the returned, processed, formatted results.
 
 ## When to use this package
 
@@ -38,10 +40,11 @@ The essential setup steps look like this:
 
 1. Install the package
 2. Set up a Google Sheet ready for access
-3. Call the reader function
-4. The options object argument
-5. The callback argument
-6. Process the results
+3. Generate a Google Sheets API key
+4. Call the reader function
+5. The options object argument
+6. The callback argument
+7. Process the results
 
 ### Install the package
 
@@ -71,6 +74,19 @@ This is what your settings screen should look like...
 
 ![Google Sheets publishing settings - screenshot](demo/img/sheets-settings-screenshot.png?raw=true)
 
+Next, you'll need to make the sheet available to anyone with the link (**in read-only mode**):
+
+1. In the top right of the screen, hit the 'Share' button
+2. Change the dropdown option to 'Anyone with the link'
+3. Make sure to leave the right hand drop down on 'Viewer', this way your sheet will remain read-only to the internet
+4. Hit 'Done'
+
+This is what the box looks like:
+
+![Google Sheets public link settings - screenshot](demo/img/sheets-link-settings.png)
+
+And that's all the Sheet setup work done!
+
 #### Get your Sheet id
 
 You'll need the id value of your particular Sheet in order to fetch the results.
@@ -84,6 +100,19 @@ Either way, what you'll end up with is a URL that looks like this:
 you want the part between the _/d/_ and the next _/_ character. So, for the above URL, the Sheet id would be:
 
 `1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc`
+
+### Generate a Google Sheets API key
+
+Since Google introduced Sheets API v4, you'll need to [create a Google Cloud Project](https://developers.google.com/sheets/api/quickstart/js) and generate an API key to access any information from a Google Sheet.
+
+Effectively you need to set up a new Google Cloud Project, then enable the Google Sheets API access for that project, and finally, generate an API key. 
+
+> Whilst a little bit of extra leg work is needed here, all this is 100% free and includes generous API limits from Google so it's worth settings up.
+
+There is more information in these guides:
+
+- https://developers.google.com/workspace/guides/create-project
+- https://developers.google.com/sheets/api/guides/authorizing
 
 ### Call the reader function
 
@@ -151,6 +180,7 @@ You'll need to pass in an options object when you call the reader function in or
 
 ```JavaScript
 const options = {
+  apiKey: 'BIfqSyD4ZoTrXMfF2mhAMVNNiensNsWL4XC6Sxc'
   sheetId: '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc',
   sheetNumber: 1,
   returnAllResults: false,
@@ -167,6 +197,7 @@ const options = {
 
 **Available options are**
 
+- **apiKey** (required) - the API key you generated in the steps above. It will look something like this: 'AIerSyF4ZoTrXMfG9mhAMVNNiensNsWL5XC6Ssl'
 - **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, _1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg_,
 - **sheetNumber** (optional) - _default = 1_ - if you'd like to choose a different sheet number than the first, supply this argument with the _non-zero_ index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`.
 - **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to _true_
@@ -247,7 +278,17 @@ GSheetReader(options, results => {
 
 ## Demo
 
-You can checkout this source code and install the dependencies using `yarn install`. Once you've done that, you can run `yarn start` which will fire up a local demo and show you a set of results.
+You can checkout this source code and install the dependencies using `yarn install`. 
+
+Next, you'll need to add a `.env` file in the root of the project and add the following value into it:
+
+```
+SHEETS_API_KEY='YOUR_API_KEY'
+```
+
+> **Note** you should replace the `YOUR_API_KEY` bit with your own Google Sheets API key
+
+Once you've done that, you can run `yarn start` which will fire up a local demo and show you a set of results.
 
 If you'd rather just skip this and take a look at a live demo, then you can view [this CodeSandbox live demo](https://codesandbox.io/s/g-sheets-reader-demo-qm5r0) instead.
 

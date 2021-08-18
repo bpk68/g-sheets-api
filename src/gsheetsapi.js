@@ -1,9 +1,9 @@
 import fetch from 'cross-fetch';
 
-const gsheetsAPI = function (sheetId, sheetNumber = 1) {
-  try {
-    const sheetsUrl = `https://spreadsheets.google.com/feeds/cells/${sheetId}/${sheetNumber}/public/values?alt=json`;
-
+const gsheetsAPI = function (apiKey, sheetId, sheetNumber = 1) {
+  try {    
+    const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet${sheetNumber}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=${apiKey}`;
+    
     return fetch(sheetsUrl)
       .then(response => {        
         if (!response.ok) {

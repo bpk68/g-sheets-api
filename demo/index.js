@@ -3,10 +3,12 @@ import GSheetProcessor from '../src/gsheetsprocessor.js';
 // test Sheet url
 const demoSheetURL = 'https://docs.google.com/spreadsheets/d/1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc/edit#gid=0';
 
-// test sheet id
+// test sheet id, Sheets API key, and valid auth scope
 const demoSheetId = '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc';
+const apiKey = process.env.SHEETS_API_KEY;
 
 const options = {
+  apiKey: apiKey,  
   sheetId: demoSheetId,
   sheetNumber: 1,
   returnAllResults: false,

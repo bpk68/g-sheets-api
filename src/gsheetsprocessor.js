@@ -79,51 +79,40 @@ function processGSheetResults(
   filter,
   filterOptions
 ) {
-  const data = JSONResponse.feed.entry;
-  const startRow = 2; // skip the header row(1), don't need it
+  const data = JSONResponse.values;
+  const startRow = 1; // skip the header row(1), don't need it
 
   let processedResults = [{}];
   let colNames = {};
 
-  for (let item of data) {
-    const cell = item['gs$cell']; // gets cell data
-    const val = cell['$t']; // gets cell value
-    const columnNum = cell['col']; // gets the col number
-    const thisRow = cell['row']; // gets the row number
+  for (let i = 0; i < data.length; i++) {
+    // Rows
+    const thisRow = data[i];
+    
+    for (let j = 0; j < thisRow.length; j++) {
+      // Columns/cells
+      const cellValue = thisRow[j];
+      const colNameToAdd = colNames[j]; // this will be undefined on the first pass
+      
+      if (i < startRow) {
+        colNames[j] = cellValue;
+        continue; // skip the header row
+      }
 
-    const colNameToAdd = colNames[columnNum]; // careful, this will be undefined if we hit it on the first pass
-
-    // don't add this row to the return data, but add it to list of column names
-    if (thisRow < startRow) {
-      colNames[columnNum] = val;
-      continue; // skip the header row
-    }
-
-    if (typeof processedResults[thisRow] === 'undefined') {
-      processedResults[thisRow] = {};
-    }
-
-    if (typeof colNameToAdd !== 'undefined' && colNameToAdd.length > 0) {
-      processedResults[thisRow][colNameToAdd] = val;
-    }
+      if (typeof processedResults[i] === 'undefined') {
+        processedResults[i] = {};
+      }
+  
+      if (typeof colNameToAdd !== 'undefined' && colNameToAdd.length > 0) {
+        processedResults[i][colNameToAdd] = cellValue;
+      }
+    }    
   }
 
   // make sure we're only returning valid, filled data items
   processedResults = processedResults.filter(
     result => Object.keys(result).length
   );
-
-  // account for cells with empty data
-  processedResults = processedResults.map(obj => {
-    const row = {};
-    if(obj !== undefined && Object.keys(obj).length > 0) {
-      Object.values(colNames).forEach(colName => {
-        row[colName] = obj[colName] || null;        
-      });
-      return row;
-    }
-    return;
-  });
 
   // if we're not filtering, then return all results
   if (returnAllResults || !filter) {
@@ -134,7 +123,13 @@ function processGSheetResults(
 }
 
 const gsheetProcessor = function (options, callback, onError) {
+
+  if(!options.apiKey || options.apiKey === undefined) {
+    throw new Error('Missing Sheets API key');
+  }
+  
   return GSheetsapi(
+    options.apiKey,
     options.sheetId,
     options.sheetNumber ? options.sheetNumber : 1
   )
