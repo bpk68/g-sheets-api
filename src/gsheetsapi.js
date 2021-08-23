@@ -1,11 +1,12 @@
 import fetch from 'cross-fetch';
 
-const gsheetsAPI = function (apiKey, sheetId, sheetNumber = 1) {
-  try {    
-    const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet${sheetNumber}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=${apiKey}`;
-    
+const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
+  try {
+    const sheetNameStr = sheetName || `Sheet${sheetNumber}`
+    const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetNameStr}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=${apiKey}`;
+
     return fetch(sheetsUrl)
-      .then(response => {        
+      .then(response => {
         if (!response.ok) {
           console.log('there is an error in the gsheets response');
           throw new Error('Error fetching GSheet');

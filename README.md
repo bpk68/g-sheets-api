@@ -183,6 +183,7 @@ const options = {
   apiKey: 'BIfqSyD4ZoTrXMfF2mhAMVNNiensNsWL4XC6Sxc'
   sheetId: '1_IpENDkoujmWr-B0M2ZVcyvgPQGeKwYxfHX_JYTDtRc',
   sheetNumber: 1,
+  sheetName: 'myCustomSheetName', // if sheetName is supplied, this will take precedence over sheetNumber
   returnAllResults: false,
   filter: {
     'department': 'archaeology',
@@ -200,6 +201,7 @@ const options = {
 - **apiKey** (required) - the API key you generated in the steps above. It will look something like this: 'AIerSyF4ZoTrXMfG9mhAMVNNiensNsWL5XC6Ssl'
 - **sheetId** (required) - the id of the sheet you have made pulicly available, it will look something like this, _1-CmQumuz5ZiOvINhphEMgfplrJacQhD623RROcOBTAg_,
 - **sheetNumber** (optional) - _default = 1_ - if you'd like to choose a different sheet number than the first, supply this argument with the _non-zero_ index based sheet number - i.e. for the second sheet, you'd supply `sheetNumber: 2`.
+- **sheetName** (optional) - if you're using custom names for your Sheets (i.e. not the default 'Sheet1', 'Sheet2', etc.), then you can supply a `sheetName` option here with the string name of the sheet name you wish to find. **Note that if `sheetName` is supplied to the options object, it will override the `sheetNumber` value if also supplied.**
 - **returnAllResults** (optional) - if you wish to override the filter (perhaps for demoing or testing) then set this value to _true_
 - **filter** (optional) - an object consisting of key/value pairs where _key_ is a column header in the Sheet and _value_ is the value to match for the filter.
 - **filterOptions** - (optional) - to better control the filter's matching, you can optionally supply a _filterOptions_ object consisting of the following properties:

@@ -88,12 +88,12 @@ function processGSheetResults(
   for (let i = 0; i < data.length; i++) {
     // Rows
     const thisRow = data[i];
-    
+
     for (let j = 0; j < thisRow.length; j++) {
       // Columns/cells
       const cellValue = thisRow[j];
       const colNameToAdd = colNames[j]; // this will be undefined on the first pass
-      
+
       if (i < startRow) {
         colNames[j] = cellValue;
         continue; // skip the header row
@@ -102,11 +102,11 @@ function processGSheetResults(
       if (typeof processedResults[i] === 'undefined') {
         processedResults[i] = {};
       }
-  
+
       if (typeof colNameToAdd !== 'undefined' && colNameToAdd.length > 0) {
         processedResults[i][colNameToAdd] = cellValue;
       }
-    }    
+    }
   }
 
   // make sure we're only returning valid, filled data items
@@ -123,22 +123,24 @@ function processGSheetResults(
 }
 
 const gsheetProcessor = function (options, callback, onError) {
+  const {apiKey, sheetId, sheetName, sheetNumber, returnAllResults, filter, filterOptions} = options
 
   if(!options.apiKey || options.apiKey === undefined) {
     throw new Error('Missing Sheets API key');
   }
-  
-  return GSheetsapi(
-    options.apiKey,
-    options.sheetId,
-    options.sheetNumber ? options.sheetNumber : 1
-  )
+
+  return GSheetsapi({
+    apiKey,
+    sheetId,
+    sheetName,
+    sheetNumber
+  })
     .then(result => {
       const filteredResults = processGSheetResults(
         result,
-        options.returnAllResults || false,
-        options.filter || false,
-        options.filterOptions || {
+        returnAllResults || false,
+        filter || false,
+        filterOptions || {
           operator: 'or',
           matching: 'loose'
         }
