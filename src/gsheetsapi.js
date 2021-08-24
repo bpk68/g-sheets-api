@@ -2,7 +2,7 @@ import fetch from 'cross-fetch';
 
 const gsheetsAPI = function ({apiKey, sheetId, sheetName, sheetNumber = 1}) {
   try {
-    const sheetNameStr = sheetName || `Sheet${sheetNumber}`
+    const sheetNameStr = encodeURIComponent(sheetName) || `Sheet${sheetNumber}`
     const sheetsUrl = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${sheetNameStr}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=${apiKey}`;
 
     return fetch(sheetsUrl)
