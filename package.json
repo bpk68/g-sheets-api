@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/bpk68/g-sheets-api.git#readme",
   "devDependencies": {
-    "@babel/cli": "7.15.4",
+    "@babel/cli": "7.15.7",
     "@babel/core": "7.15.5",
     "del-cli": "4.0.1",
     "parcel-bundler": "1.12.5"
