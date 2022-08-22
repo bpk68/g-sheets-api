@@ -1,6 +1,6 @@
 {
   "name": "g-sheets-api",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "repository": "https://github.com/bpk68/g-sheets-api.git",
