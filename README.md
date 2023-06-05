@@ -105,9 +105,9 @@ you want the part between the _/d/_ and the next _/_ character. So, for the abov
 
 Since Google introduced Sheets API v4, you'll need to [create a Google Cloud Project](https://developers.google.com/sheets/api/quickstart/js) and generate an API key to access any information from a Google Sheet.
 
-Effectively you need to set up a new Google Cloud Project, then enable the Google Sheets API access for that project, and finally, generate an API key. 
+Effectively you need to set up a new Google Cloud Project, then enable the Google Sheets API access for that project, and finally, generate an API key.
 
-> Whilst a little bit of extra leg work is needed here, all this is 100% free and includes generous API limits from Google so it's worth settings up.
+> Whilst a little bit of extra leg work is needed here, all this is 100% free and includes generous API limits from Google so it's worth setting up.
 
 There is more information in these guides:
 
@@ -151,9 +151,9 @@ To handle this, we've got a couple of options:
 The `GSheetsReader` will return a typical JS promise object. Therefore, you can catch any errors using the `.catch()` block like this:
 
 ```js
-GSheetReader(options, results => {
+GSheetReader(options, (results) => {
   // do something with the results here
-}).catch(err => {
+}).catch((err) => {
   // do something with the error message here
 });
 ```
@@ -165,10 +165,10 @@ If you don't want to handle things with the `.catch()` block, then you can suppl
 ```js
 GSheetReader(
   options,
-  results => {
+  (results) => {
     // do something with the results here
   },
-  error => {
+  (error) => {
     // OPTIONAL: handle errors here
   }
 );
@@ -280,7 +280,7 @@ GSheetReader(options, results => {
 
 ## Demo
 
-You can checkout this source code and install the dependencies using `yarn install`. 
+You can checkout this source code and install the dependencies using `yarn install`.
 
 Next, you'll need to add a `.env` file in the root of the project and add the following value into it:
 
@@ -296,12 +296,11 @@ If you'd rather just skip this and take a look at a live demo, then you can view
 
 ### Access to the demo GSheet
 
-In the demos (both within this very repo and in my [website article on using the GSheets reader](https://robkendal.co.uk/blog/reading-google-sheets-data-using-javascript-with-google-sheets-reader)), I make reference to a demo sheet I have in my own Google account. Many people request access to this, but unfortunately this won't be granted because of security issues. 
+In the demos (both within this very repo and in my [website article on using the GSheets reader](https://robkendal.co.uk/blog/reading-google-sheets-data-using-javascript-with-google-sheets-reader)), I make reference to a demo sheet I have in my own Google account. Many people request access to this, but unfortunately this won't be granted because of security issues.
 
 However, in case you'd like to recreate the exact same sheet I have, here's a screenshot:
 
 ![Google Sheet demo sheet content - screenshot](demo/img/g-sheets-demo-sheet-screenshot.png?raw=true)
-
 
 ## A note on Node support
 
