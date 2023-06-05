@@ -27,9 +27,10 @@ function matchValues(valToMatch, valToMatchAgainst, matchingType) {
 
 function filterResults(resultsToFilter, filter, options) {
   let filteredData = [];
+  var filteredDataIndexes = []; // now we have list of row indexes for our filtered result
 
   // now we have a list of rows, we can filter by various things
-  return resultsToFilter.filter(item => {
+  return resultsToFilter.filter((item, rowIndex) => {
 
     // item data shape
     // item = {
@@ -69,7 +70,12 @@ function filterResults(resultsToFilter, filter, options) {
       addRow = filterMatches.every(match => match === true);
     }
 
+    if (addRow) filteredDataIndexes.push(rowIndex);
+    
     return addRow;
+  }).map((item, index) => {
+    item.rowIndex = filteredDataIndexes[index];
+    return item;
   });
 }
 
