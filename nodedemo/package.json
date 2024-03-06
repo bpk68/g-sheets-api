@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "3.0.1"
+    "nodemon": "3.1.0"
   },
   "scripts": {
     "start": "nodemon index.js"
