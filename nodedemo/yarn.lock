@@ -139,10 +139,10 @@
   "resolved" "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   "version" "2.1.2"
 
-"nodemon@3.1.0":
-  "integrity" "sha512-xqlktYlDMCepBJd43ZQhjWwMw2obW/JRvkrLxq5RCNcuDDX1DbcPT+qT1IlIIdf+DhnWs90JpTMe+Y5KxOchvA=="
-  "resolved" "https://registry.npmjs.org/nodemon/-/nodemon-3.1.0.tgz"
-  "version" "3.1.0"
+"nodemon@3.1.7":
+  "integrity" "sha512-hLj7fuMow6f0lbB0cD14Lz2xNjwsyruH251Pk4t/yIitCFJbmY1myuLlHm/q06aST4jg6EgAh74PIBBrRqpVAQ=="
+  "resolved" "https://registry.npmjs.org/nodemon/-/nodemon-3.1.7.tgz"
+  "version" "3.1.7"
   dependencies:
     "chokidar" "^3.5.2"
     "debug" "^4"
